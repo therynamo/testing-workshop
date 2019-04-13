@@ -21,5 +21,11 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "jest-puppeteer": "3.9.0",
+    "puppeteer": "^1.14.0"
+  },
+  "jest": {
+  }
 }

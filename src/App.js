@@ -1,28 +1,63 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React, { useEffect, useState } from 'react';
+import fetch from 'unfetch';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 
-export default App;
+import TodoDetails from './components/TodoDetails';
+import TodoListContainer from './components/TodoList';
+import createTodo from './actions/createTodo';
+
+import { AppContainer } from './styles';
+
+const TodoList = withRouter(props => <TodoListContainer {...props} />);
+
+const AppRouter = () => {
+  const [todos, setTodos] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const handleCreateDetails = async (details) => {
+    let todo = null;
+
+    try {
+      todo = await createTodo(details);
+    } catch (e) {
+      console.error('unable to add todo');
+      return;
+    }
+
+    setTodos([...todos, todo]);
+  };
+
+  useEffect(() => {
+    const fetchTodos = async () => {
+      let items = [];
+
+      try {
+        const res = await fetch('http://localhost:3002');
+        items = await res.json();
+      } catch (e) {
+        console.error(e);
+      }
+
+      setTodos(items);
+    };
+
+    fetchTodos();
+    setLoading(false);
+  }, [loading]);
+
+  return (
+    <Router>
+      <AppContainer>
+        <TodoList
+          refreshTodos={setLoading}
+          items={todos}
+          handleCreateDetails={handleCreateDetails}
+        />
+        <Route path="/:id" component={TodoDetails} />
+      </AppContainer>
+    </Router>
+  );
+};
+
+export default AppRouter;

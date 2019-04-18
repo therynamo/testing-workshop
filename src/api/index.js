@@ -1,5 +1,6 @@
 const express = require('express');
 const Loki = require('lokijs');
+// const methodOverride = require('method-override');
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(
     extended: true,
   }),
 );
+// app.use(methodOverride('X-HTTP-Method-Override'));
 
 app.get('/details/:id', (req, res) => {
   let todoDetails = {};

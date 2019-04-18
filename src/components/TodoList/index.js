@@ -40,12 +40,12 @@ const TodoList = ({
       </div>
       <div>
         {!shouldShowNewCard && (
-          <button type="button" onClick={handleNewTodoClick}>
+          <button data-testid="add-new-card" type="button" onClick={handleNewTodoClick}>
             Add new card
           </button>
         )}
         {shouldShowNewCard && (
-          <StyledForm>
+          <StyledForm data-testid="list-form">
             <input placeholder="title" onChange={e => setTitle(e.target.value)} value={title} />
             <textarea
               className="h-margin-v-tight"
@@ -70,7 +70,7 @@ const TodoList = ({
 };
 
 TodoList.defaultProps = {
-  items: [{}],
+  items: [],
   handleCreateDetails: () => {},
   refreshTodos: () => {},
 };

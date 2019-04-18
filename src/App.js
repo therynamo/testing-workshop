@@ -33,7 +33,7 @@ const AppRouter = () => {
       let items = [];
 
       try {
-        const res = await fetch('http://localhost:3002');
+        const res = await fetch('http://localhost:3010');
         items = await res.json();
       } catch (e) {
         console.error(e);

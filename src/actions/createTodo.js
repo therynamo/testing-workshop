@@ -3,7 +3,7 @@ import shortid from 'shortid';
 
 const createTodo = async ({ title, description }) => {
   const uuid = shortid.generate();
-  const res = await fetch(`http://localhost:3002/details/${uuid}`, {
+  const res = await fetch(`http://localhost:3010/details/${uuid}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

@@ -20,10 +20,12 @@ const ListCard = ({
   }, [history, refreshTodos]);
 
   return (
-    <ListCardWrapper className="h-margin-v-tight" id={id}>
+    <ListCardWrapper data-testid="list-card" className="h-margin-v-tight" id={id}>
       <CloseButton onClick={handleClose} />
       <ListCardImage src="https://www.fillmurray.com/200/300" alt="item card" />
-      <Link to={`/${id}`}>{title}</Link>
+      <Link data-testid="list-card-title" to={`/${id}`}>
+        {title}
+      </Link>
     </ListCardWrapper>
   );
 };

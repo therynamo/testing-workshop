@@ -73,4 +73,4 @@ app.delete('/details/:id', (req, res) => {
   res.send({ id: req.params.id, deleted: true });
 });
 
-app.listen(3002);
+app.listen(3010);

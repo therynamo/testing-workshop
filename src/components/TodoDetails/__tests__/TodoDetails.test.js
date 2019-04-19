@@ -32,7 +32,7 @@ describe('TodoDetails', () => {
     expect(scope.isDone()).toEqual(true);
   });
 
-  it('should render when fetchTodoDetails call fails', async () => {
+  it('should render when fetchTodoDetails call succeeds', async () => {
     const { getByText, getByTestId } = render(
       <BrowserRouter>
         <TodoDetails match={matchStub} />

@@ -70,7 +70,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "test:functional": "node scripts/tests.js functional-tests/"
+    "test:functional": "yarn jest -c ./config/jest/functional-tests.js functional-tests/"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -96,7 +96,6 @@
       "<rootDir>/scripts/jest.js"
     ],
     "testMatch": [
-      "<rootDir>/functional-tests/**/?(*.)(spec|test).{js,jsx,ts,tsx}",
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
       "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,ts,tsx}"
     ],
@@ -131,8 +130,7 @@
       "/Users/z0036mj/NoWork/testing-workshop/node_modules/jest-watch-typeahead/testname.js"
     ],
     "globalSetup": "jest-environment-puppeteer/setup",
-    "globalTeardown": "jest-environment-puppeteer/teardown",
-    "testEnvironment": "jest-environment-puppeteer"
+    "globalTeardown": "jest-environment-puppeteer/teardown"
   },
   "babel": {
     "presets": [

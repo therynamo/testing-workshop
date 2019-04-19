@@ -126,8 +126,8 @@
       "node"
     ],
     "watchPlugins": [
-      "/Users/z0036mj/NoWork/testing-workshop/node_modules/jest-watch-typeahead/filename.js",
-      "/Users/z0036mj/NoWork/testing-workshop/node_modules/jest-watch-typeahead/testname.js"
+      "<rootDir>/node_modules/jest-watch-typeahead/filename.js",
+      "<rootDir>/node_modules/jest-watch-typeahead/testname.js"
     ],
     "globalSetup": "jest-environment-puppeteer/setup",
     "globalTeardown": "jest-environment-puppeteer/teardown"
